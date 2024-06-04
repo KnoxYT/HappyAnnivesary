@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://raw.githubusercontent.com/KnoxYT/Happy-Annivesary-Baby/main/background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+        .options button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background: #ff69b4;
+            color: #fff;
+        }
+        .options button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .letter-container {
+            display: none;
+        }
+        .letter {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .letter h2 {
+            margin-bottom: 20px;
+        }
+        .letter p {
+            margin-bottom: 20px;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .animated-card {
+            display: none;
+            position: relative;
+            width: 300px;
+            margin: 20px auto;
+            perspective: 1000px;
+        }
+        .animated-card .card {
+            width: 100%;
+            transform-style: preserve-3d;
+            transition: transform 1s;
+        }
+        .animated-card .card.is-flipped {
+            transform: rotateY(180deg);
+        }
+        .animated-card .card-side {
+            position: absolute;
+            width: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .animated-card .card-front {
+            background: #ff69b4;
+            color: #fff;
+        }
+        .animated-card .card-back {
+            background: #fff;
+            transform: rotateY(180deg);
+        }
+        .card-back .heart {
+            font-size: 50px;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <audio id="background-music" autoplay loop>
+        <source src="https://raw.githubusercontent.com/KnoxYT/Happy-Annivesary-Baby/main/Tattoo%20(Violin%20Instrumental).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <div class="question">
+            <h1>Happy Anniversary, Baby!</h1>
+            <p>How are you?</p>
+            <div class="options">
+                <button onclick="nextQuestion(1)">Fine</button>
+                <button disabled>Not Fine</button>
+            </div>
+        </div>
+        <div class="question" style="display: none;">
+            <p>Have you been happy with Raymond in this relationship?</p>
+            <div class="options">
+                <button onclick="nextQuestion(2)">Yes</button>
+                <button disabled>Sometimes</button>
+                <button disabled>No</button>
+            </div>
+        </div>
+        <div class="question" style="display: none;">
+            <p>Are you ready to spend the rest of your life with Raymond?</p>
+            <div class="options">
+                <button onclick="showFlowerPage()">Yes</button>
+                <button disabled>No</button>
+            </div>
+        </div>
+        <div id="flower-page" style="display: none;">
+            <p>Receive your flowers?</p>
+            <div class="options">
+                <button onclick="showFlower()">Yes</button>
+                <button disabled>No</button>
+            </div>
+        </div>
+        <div id="animated-flower" style="display: none;">
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG1ja2NlYTNsdWczOXR1NmJoYTl6aWM4eDFlcm9jejZmdDJqNHA1biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h5hDpOeyEAFR2DKz4N/giphy.gif" alt="Flower">
+            <div class="options">
+                <button onclick="showLetterPage()">Next</button>
+            </div>
+        </div>
+        <div id="letter-page" style="display: none;">
+            <p>Do you want to read a letter?</p>
+            <div class="options">
+                <button onclick="showLetter()">Yes</button>
+                <button disabled>No</button>
+            </div>
+        </div>
+        <div id="letter-container" class="letter-container">
+            <div class="animated-card">
+                <div class="card" id="card">
+                    <div class="card-side card-front">
+                        <h2>Happy Anniversary</h2>
+                    </div>
+                    <div class="card-side card-back">
+                        <div class="heart">❤️ NuNu ❤️</div>
+                        <div class="letter">
+                            <h2>My Baby Girl,</h2>
+                            <p>🌟 Happy Anniversary, my love! 🌟</p>
+                            <p>Today marks one amazing year of us sharing our lives together, and I couldn’t be happier. Your love, kindness, and support have made this past year incredible. 💖</p>
+                            <p>You make every day brighter and more beautiful. 🌷 I am so grateful for you and the memories we've created. Here's to many more years of love, laughter, and adventure together. 🎉🥂</p>
+                            <p>I love you more than words can express. ❤️</p>
+                            <p>Yours always,</p>
+                            <p>Raymond</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextQuestion(index) {
+            const questions = document.querySelectorAll('.question');
+            if (index < questions.length) {
+                questions[index - 1].style.display = 'none';
+                questions[index].style.display = 'block';
+            }
+        }
+
+        function showFlowerPage() {
+            document.querySelector('.question:last-child').style.display = 'none';
+            document.getElementById('flower-page').style.display = 'block';
+        }
+
+        function showFlower() {
+            document.getElementById('flower-page').style.display = 'none';
+            document.getElementById('animated-flower').style.display = 'block';
+        }
+
+        function showLetterPage() {
+            document.getElementById('animated-flower').style.display = 'none';
+            document.getElementById('letter-page').style.display = 'block';
+        }
+
+        function showLetter() {
+            document.getElementById('letter-page').style.display = 'none';
+            const card = document.getElementById('card');
+            card.classList.add('is-flipped');
+            document.getElementById('letter-container').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
