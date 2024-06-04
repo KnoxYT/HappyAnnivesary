@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary Baby</title>
+    <style>
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .card {
+            border: 2px solid white;
+            border-radius: 15px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px auto;
+            width: 300px;
+            text-align: left;
+        }
+        .hidden {
+            display: none;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .gif-container img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Anniversary, Baby</h1>
+    <p>Click the button below to receive your flowers!</p>
+    <button class="button" id="flowersButton">Receive Your Flowers</button>
+    <div id="flowersGif" class="hidden gif-container">
+        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbG1ja2NlYTNsdWczOXR1NmJoYTl6aWM4eDFlcm9jejZmdDJqNHA1biZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/h5hDpOeyEAFR2DKz4N/giphy.gif" alt="Flowers">
+        <p><button class="button" id="nextPageButton">Next</button></p>
+    </div>
+    <div id="questionsSection" class="hidden">
+        <div class="card">
+            <p>How are you?</p>
+            <button class="button answer" data-answer="fine">Fine</button>
+            <button class="button answer" data-answer="notFine">Not Fine</button>
+        </div>
+        <div class="card hidden">
+            <p>Have you been happy with Raymond in this relationship?</p>
+            <button class="button answer" data-answer="yes">Yes</button>
+            <button class="button answer" data-answer="sometimes">Sometimes</button>
+            <button class="button answer" data-answer="no">No</button>
+        </div>
+        <div class="card hidden">
+            <p>Are you ready to spend the rest of your life with Raymond?</p>
+            <button class="button answer" data-answer="yes">Yes</button>
+            <button class="button answer" data-answer="no">No</button>
+        </div>
+        <button class="button hidden" id="readLetterButton">Read the Letter</button>
+    </div>
+    <div id="letterSection" class="hidden">
+        <div class="card">
+            <h2>Dear Baby,</h2>
+            <p>🌟 Happy Anniversary, my love! 🌟</p>
+            <p>Today marks one amazing year of us sharing our lives together, and I couldn’t be happier. Your love, kindness, and support have made this past year incredible. 💖</p>
+            <p>You make every day brighter and more beautiful. 🌷 I am so grateful for you and the memories we've created. Here's to many more years of love, laughter, and adventure together. 🎉🥂</p>
+            <p>I love you more than words can express. ❤️</p>
+            <p>Yours always,<br>Raymond</p>
+        </div>
+    </div>
+    <audio id="backgroundMusic" loop>
+        <source src="https://knoxyt.github.io/Happy-Anniversary-Baby/Tattoo%20(Violin%20Instrumental).mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <script>
+        document.getElementById('backgroundMusic').play();
+
+        document.getElementById('flowersButton').addEventListener('click', function() {
+            document.getElementById('flowersGif').classList.remove('hidden');
+        });
+
+        document.getElementById('nextPageButton').addEventListener('click', function() {
+            document.getElementById('flowersGif').classList.add('hidden');
+            document.getElementById('questionsSection').classList.remove('hidden');
+        });
+
+        let questions = document.querySelectorAll('#questionsSection .card');
+        let answers = document.querySelectorAll('.answer');
+        let currentQuestion = 0;
+
+        answers.forEach(answer => {
+            answer.addEventListener('click', function() {
+                if (this.dataset.answer === 'fine' || this.dataset.answer === 'yes') {
+                    if (currentQuestion < questions.length - 1) {
+                        questions[currentQuestion].classList.add('hidden');
+                        currentQuestion++;
+                        questions[currentQuestion].classList.remove('hidden');
+                    } else {
+                        document.getElementById('readLetterButton').classList.remove('hidden');
+                    }
+                }
+            });
+        });
+
+        document.getElementById('readLetterButton').addEventListener('click', function() {
+            document.getElementById('questionsSection').classList.add('hidden');
+            document.getElementById('letterSection').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
