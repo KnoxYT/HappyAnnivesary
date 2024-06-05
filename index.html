@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7e7e2;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .page {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page img {
+            max-width: 80%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .page h1 {
+            font-size: 2em;
+            color: #ff6f61;
+        }
+
+        .page button {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #ff6f61;
+            border: none;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .page button:hover {
+            background-color: #ff4b3a;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .background {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        p {
+            font-family: 'Georgia', serif;
+            font-size: 1.2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Home Page -->
+        <div id="homepage" class="page">
+            <img src="https://raw.githubusercontent.com/KnoxYT/HappyAnnivesary/main/best%20gf.jpg" alt="Best Girlfriend">
+            <h1>Presenting This To You</h1>
+            <button onclick="nextPage('gif1')">Thank You</button>
+            <button id="rejectButton" onclick="reject()">Reject</button>
+        </div>
+
+        <!-- GIF Pages -->
+        <div id="gif1" class="page hidden">
+            <h1>Sometimes I Really Wish This Could Be Us Cuddling</h1>
+            <img src="https://media.tenor.com/5YXPgpdWaaEAAAAC/milk-and-mocha-milk.gif" alt="Cuddling GIF">
+            <button onclick="nextPage('gif2')">Next</button>
+        </div>
+
+        <div id="gif2" class="page hidden">
+            <h1>This is the life I imagine with you and I would do anything to get us there</h1>
+            <img src="https://media.tenor.com/84ZAsRABXrEAAAAM/tkthao219-bubududu.gif" alt="Life GIF">
+            <button onclick="nextPage('gif3')">Next</button>
+        </div>
+
+        <div id="gif3" class="page hidden">
+            <h1>When I don't hear from you for a whole day</h1>
+            <img src="https://media.tenor.com/_H0C9Q5PYXgAAAAM/me-sad.gif" alt="Sad GIF">
+            <button onclick="nextPage('gif4')">Next</button>
+        </div>
+
+        <div id="gif4" class="page hidden">
+            <h1>When I hear from You</h1>
+            <img src="https://media.tenor.com/SZZbH8rZLOIAAAAM/peach-cats-kiss.gif" alt="Happy GIF">
+            <button onclick="nextPage('gif5')">Next</button>
+        </div>
+
+        <div id="gif5" class="page hidden">
+            <h1>Anyway baby I know you like Tulip but you deserve more</h1>
+            <img src="https://media.giphy.com/media/h5hDpOeyEAFR2DKz4N/giphy.gif" alt="Tulip GIF">
+            <button onclick="nextPage('questions')">Move to Questions?</button>
+        </div>
+
+        <!-- Questions -->
+        <div id="questions" class="page hidden">
+            <h1>Do You Love Me?</h1>
+            <button onclick="answerQuestion('q2')">Yes</button>
+            <button onclick="reject()">No</button>
+        </div>
+
+        <div id="q2" class="page hidden">
+            <h1>Do you like when we talk sexy?</h1>
+            <button onclick="answerQuestion('q3')">Yes</button>
+            <button onclick="reject()">No</button>
+        </div>
+
+        <div id="q3" class="page hidden">
+            <h1>Ready to finish what we started that day?</h1>
+            <img src="https://raw.githubusercontent.com/KnoxYT/HappyAnnivesary/main/eat.png" alt="Image">
+            <button onclick="nextPage('q4')">Yes</button>
+            <button onclick="reject()">No</button>
+        </div>
+
+        <div id="q4" class="page hidden">
+            <h1>Are you happy in this relationship?</h1>
+            <button onclick="answerQuestion('q5')">Yes</button>
+            <button onclick="reject()">No</button>
+        </div>
+
+        <div id="q5" class="page hidden">
+            <h1>Do you actually want us to get married?</h1>
+            <button onclick="answerQuestion('q6')">Yes</button>
+            <button onclick="reject()">No</button>
+        </div>
+
+        <div id="q6" class="page hidden">
+            <h1>Would you run away with me if you had the chance?</h1>
+            <button onclick="nextPage('final')">Yes</button>
+            <button onclick="reject()">No</button>
+        </div>
+
+        <!-- Final Page -->
+        <div id="final" class="page hidden">
+            <h1>My Love,</h1>
+            <p>
+                🌟 Happy Anniversary,🌟<br><br>
+                Today marks one amazing year of us sharing our lives together, and I couldn’t be happier. Your love, kindness, and support have made this past year incredible. 💖<br><br>
+                You make every day brighter and more beautiful. 🌷 I am so grateful for you and the memories we've created. Here's to many more years of love, laughter, and adventure together. 🎉🥂<br><br>
+                I love you more than words can express. ❤️<br><br>
+                Yours always,<br>
+                Raymond.
+            </p>
+            <img src="https://raw.githubusercontent.com/KnoxYT/HappyAnnivesary/main/background.jpg" alt="Background" class="background">
+        </div>
+    </div>
+    <audio autoplay loop>
+        <source src="https://raw.githubusercontent.com/KnoxYT/HappyAnnivesary/main/Tattoo%20(Violin%20Instrumental).mp3" type="audio/mp3">
+    </audio>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("homepage").classList.remove("hidden");
+        });
+
+        function nextPage(pageId) {
+            const current = document.querySelector(".page:not(.hidden)");
+            if (current) {
+                current.classList.add("hidden");
+            }
+            document.getElementById(pageId).classList.remove("hidden");
+        }
+
+        function reject() {
+            const rejectButtons = document.querySelectorAll("button[id^='rejectButton']");
+            rejectButtons.forEach(button => {
+                const emojis = Array(5).fill('👉').join(' ');
+                button.innerHTML = emojis + ' Yes ' + emojis;
+            });
+        }
+
+        function answerQuestion(nextPageId) {
+            nextPage(nextPageId);
+        }
+    </script>
+</body>
+</html>
