@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Surprise</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://github.com/KnoxYT/HappyAnnivesary/blob/main/bg%20image.jpg?raw=true');
+            background-size: cover;
+            font-family: 'Dancing Script', cursive;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            font-weight: bold; /* Add this line */
+        }
+        .container {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        .visible {
+            display: flex;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            color: black;
+            font-weight: bold; /* Add this line */
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background: pink;
+            color: black;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .letter {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            background: rgba(255, 192, 203, 0.8);
+            padding: 30px;
+            border: 2px solid pink;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: bold; /* Add this line */
+        }
+    </style>
+</head>
+<body>
+    <div class="container visible" id="home">
+        <h1>Happy Anniversary!</h1>
+        <p>Click the button to see your virtual gift</p>
+        <button onclick="showAward()">Receive Your Award</button>
+    </div>
+
+    <div class="container" id="awardPage">
+        <div class="card">
+            <img src="https://github.com/KnoxYT/HappyAnnivesary/blob/main/best%20gf.jpg?raw=true" alt="Best Girlfriend Award">
+            <p>You are the best!</p>
+            <button onclick="showPage('gif1')">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="gif1">
+        <div class="card">
+            <h2>I wish this was us every night</h2>
+            <img src="https://github.com/KnoxYT/HappyAnnivesary/blob/main/cuddling.png?raw=true" alt="Cuddling">
+            <button onclick="showPage('gif2')">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="gif2">
+        <div class="card">
+            <h2>The Life I want for Us and we will get it</h2>
+            <img src="https://github.com/KnoxYT/HappyAnnivesary/blob/main/vacation.png?raw=true" alt="Vacation">
+            <button onclick="showPage('gif3')">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="gif3">
+        <div class="card">
+            <h2>Us Celebrating Our 50th Anniversary</h2>
+            <img src="https://github.com/KnoxYT/HappyAnnivesary/blob/main/kiss-old-couple.png?raw=true" alt="Kiss Old Couple">
+            <button onclick="showPage('gif4')">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="gif4">
+        <div class="card">
+            <h2>Anyway Love here are your flowers</h2>
+            <img src="https://github.com/KnoxYT/HappyAnnivesary/blob/main/flowers.gif?raw=true" alt="Flowers">
+            <button onclick="showPage('gif5')">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="gif5">
+        <div class="card">
+            <h2>And of course Happy Anniversary</h2>
+            <img src="https://github.com/KnoxYT/HappyAnnivesary/blob/main/happy-anniversary.png?raw=true" alt="Happy Anniversary">
+            <button onclick="showPage('questions')">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="questions">
+        <div class="card">
+            <h2>Move to questions?</h2>
+            <button onclick="showPage('q1')">Yes</button>
+            <button onclick="alert('You must proceed to the questions to continue.')">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="q1">
+        <div class="card">
+            <h2>Do you love me?</h2>
+            <button onclick="showMessage('lol, I know you do that\'s a dumb question', 'q2')">Yes</button>
+            <button onclick="alert('You must answer Yes to proceed.')">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="q2">
+        <div class="card">
+            <h2>Do you like when we talk sexy?</h2>
+            <button onclick="showPage('eat')">Yes</button>
+            <button onclick="alert('You must answer Yes to proceed.')">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="eat">
+        <div class="card">
+            <img src="https://github.com/KnoxYT/HappyAnnivesary/blob/main/eat.png?raw=true" alt="Eat">
+            <h2>Are you down to finish what we started that day?</h2>
+            <button onclick="showPage('serious')">Yes</button>
+            <button onclick="alert('You must answer Yes to proceed.')">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="serious">
+        <div class="card">
+            <h2>Alright, let's get to the serious questions</h2>
+            <button onclick="showPage('q3')">Next</button>
+        </div>
+    </div>
+
+    <div class="container" id="q3">
+        <div class="card">
+            <h2>Are you happy in this relationship?</h2>
+            <button onclick="showPage('q4')">Yes</button>
+            <button onclick="alert('You must answer Yes to proceed.')">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="q4">
+        <div class="card">
+            <h2>Do you actually want us to get married?</h2>
+            <button onclick="showPage('q5')">Yes</button>
+            <button onclick="alert('You must answer Yes to proceed.')">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="q5">
+        <div class="card">
+            <h2>Would you run away with me if you had the chance?</h2>
+            <button onclick="showPage('letter')">Yes</button>
+            <button onclick="alert('You must answer Yes to proceed.')">No</button>
+        </div>
+    </div>
+
+    <div class="container" id="letter">
+        <div class="letter">
+            <p>My Love, Happy Anniversary,<br><br>Today marks one year of us sharing our lives together, and I couldn't be happier. Your love, kindness, and support have made this one year with you seem like eternity.<br><br>You make every day brighter and more beautiful. I am so grateful for you and the memories we've created. Here's to many more years of love, laughter, and adventure together.<br><br>I love you more than words can express.<br><br>Yours always,<br>Raymond.</p>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="https://github.com/KnoxYT/HappyAnnivesary/raw/main/Tattoo%20(Violin%20Instrumental).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function showAward() {
+            document.getElementById('home').classList.remove('visible');
+            document.getElementById('awardPage').classList.add('visible');
+        }
+
+        function showPage(pageId) {
+            var pages = document.getElementsByClassName('container');
+            for (var i = 0; i < pages.length; i++) {
+                pages[i].classList.remove('visible');
+            }
+            document.getElementById(pageId).classList.add('visible');
+        }
+
+        function showMessage(message, nextPage) {
+            alert(message);
+            showPage(nextPage);
+        }
+
+        window.onload = function() {
+            document.getElementById('bgMusic').play();
+        };
+    </script>
+</body>
+</html>
